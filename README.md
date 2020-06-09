@@ -10,7 +10,7 @@ Inspired by: https://github.com/christopherbeck/OCI-Rest-APIs-nodejs
 const oci = require('./lib');
 
 (async () => {
-    const { config, signer } = await oci.config.loadConfig(profile='DEFAULT');
+    const { config, signer } = await oci.config.loadConfig({profile='DEFAULT'});
     const client = new oci.objectStorage.Client( {config, signer} )
     const result = await client.createPreauthenticatedRequest({ url: 'oci://idtrhslgwwqi:tmp-storage/test.txt' });
     console.log(result);
